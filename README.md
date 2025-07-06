@@ -1,73 +1,90 @@
 # Secure-Bite
 
-A Flutter application for food safety and nutrition information.
-
-## Getting Started
-
-This project is a Flutter application that helps users decode food labels and make healthier choices.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-
-## Security Setup
-
-### Important: API Keys and Sensitive Data
-
-This project contains sensitive configuration files that should **NEVER** be committed to version control. The following files are automatically ignored by git:
-
-- `android/app/google-services.json` - Firebase configuration for Android
-- `lib/firebase_options.dart` - Firebase options with API keys
-- `ios/Runner/GoogleService-Info.plist` - Firebase configuration for iOS
-- Any `.env` files
-- Certificate and key files (`.pem`, `.key`, `.p12`, `.keystore`)
-
-### Setup Instructions
-
-1. **Firebase Configuration:**
-   - Copy `android/app/google-services.json.template` to `android/app/google-services.json`
-   - Copy `lib/firebase_options.dart.template` to `lib/firebase_options.dart`
-   - Replace the placeholder values with your actual Firebase project credentials
-
-2. **Environment Variables:**
-   - Create a `.env` file in the root directory if needed
-   - Add any additional API keys or configuration values
-
-3. **iOS Configuration (if applicable):**
-   - Add your `GoogleService-Info.plist` to `ios/Runner/` directory
-
-### Template Files
-
-Template files are provided to show the required structure:
-- `android/app/google-services.json.template`
-- `lib/firebase_options.dart.template`
-
-### Security Best Practices
-
-- Never commit API keys or sensitive data to version control
-- Use environment variables for different deployment environments
-- Regularly rotate API keys and credentials
-- Keep Firebase project settings secure
-- Review the `.gitignore` file to ensure all sensitive files are excluded
+Secure-Bite is a modern Flutter application designed to help users make healthier food choices, manage dietary preferences, and track allergens. The app features a beautiful UI, Firebase authentication, and a customizable user experience with light/dark mode support.
 
 ## Features
 
-- User authentication with Firebase
-- Food label scanning and analysis
-- Nutrition information display
-- User profile management
-- Dark/Light theme support
-- Modern, aesthetic UI design
+- **User Authentication:** Sign up, log in, and password reset using Firebase Auth.
+- **Personalized Home Page:** Dynamic banners, featured products, healthy tips, and recent products.
+- **Product Details:** View healthy and unhealthy properties of food items, with image zoom and filtering.
+- **User Profile:** Edit profile, toggle dark mode, manage notifications, and allergen alerts.
+- **Preferences & Allergens:** Add and manage dietary preferences and allergens via the app drawer.
+- **Modern UI:** Glassmorphism, gradients, and responsive layouts with Google Fonts.
+- **Persistent Theme:** Remembers user's theme preference (light/dark) using shared preferences.
+
+## Screenshots
+<!-- Add screenshots of the app here if available -->
+
+## Getting Started
+
+### Prerequisites
+- [Flutter SDK](https://flutter.dev/docs/get-started/install) (>=3.6.0)
+- A configured Firebase project (see below)
+
+### Installation
+1. **Clone the repository:**
+   ```bash
+   git clone <your-repo-url>
+   cd Secure-Bite
+   ```
+2. **Install dependencies:**
+   ```bash
+   flutter pub get
+   ```
+3. **Firebase Setup:**
+   - Ensure you have your `google-services.json` (Android) and `GoogleService-Info.plist` (iOS) configured.
+   - The app uses `firebase_core` and `firebase_auth` for authentication.
+   - Firebase options are managed in `lib/firebase_options.dart`.
+
+4. **Run the app:**
+   ```bash
+   flutter run
+   ```
+
+## Project Structure
+
+```
+lib/
+  main.dart                # App entry point, theme, and routing
+  firebase_options.dart    # Firebase configuration
+  screen/
+    home_page.dart         # Home page with banners, tips, products
+    login_page.dart        # Login screen
+    sign_up.dart           # Registration screen
+    forgot_password.dart   # Password reset
+    user_profile.dart      # User profile and settings
+    productdetails.dart    # Product details view
+    app_drawer.dart        # Drawer for preferences and allergens
+    scrolling_label.dart   # Custom widgets
+assets/                    # App images and logos
+```
 
 ## Dependencies
 
-This project uses the following key dependencies:
-- Firebase Authentication
-- Firebase Core
-- SharedPreferences for theme persistence
-- Google Fonts for typography
+- flutter
+- firebase_core
+- firebase_auth
+- google_fonts
+- google_sign_in
+- flutter_svg
+- image_picker
+- flutter_animate
+- lottie
+- flutter_spinkit
+- fluttertoast
+- font_awesome_flutter
+- shared_preferences
+
+See `pubspec.yaml` for full details.
+
+## Assets
+
+The app uses several images and logos located in the `assets/` directory. Make sure all assets listed in `pubspec.yaml` are present for the app to run correctly.
+
+## Contributing
+
+Pull requests are welcome! For major changes, please open an issue first to discuss what you would like to change.
+
+## License
+
+This project is private and not published to pub.dev. Remove the `publish_to: 'none'` line in `pubspec.yaml` if you wish to publish.
