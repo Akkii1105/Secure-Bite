@@ -43,3 +43,57 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# Sensitive files and API keys
+# Firebase configuration files
+android/app/google-services.json
+ios/Runner/GoogleService-Info.plist
+lib/firebase_options.dart
+
+# Environment files
+.env
+.env.local
+.env.development
+.env.production
+.env.staging
+
+# Configuration files with sensitive data
+config/
+secrets/
+credentials/
+private/
+
+# Certificate and key files
+*.pem
+*.key
+*.p12
+*.keystore
+*.jks
+
+# API keys and tokens (common patterns)
+*api_key*
+*API_KEY*
+*apikey*
+*APIKEY*
+*secret*
+*SECRET*
+*token*
+*TOKEN*
+*password*
+*PASSWORD*
+
+# Firebase project specific
+firebase.json
+.firebaserc
+
+# iOS specific sensitive files
+ios/Runner/Info.plist
+ios/Runner/GoogleService-Info.plist
+
+# Android specific sensitive files
+android/app/src/main/res/values/strings.xml
+android/key.properties
+
+# Generated files that may contain sensitive data
+**/generated_plugin_registrant.*
+**/generated_plugins.cmake
